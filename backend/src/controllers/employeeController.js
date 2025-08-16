@@ -1,0 +1,43 @@
+const employeeModel = require('../models/employeeModel');
+
+const employeeController = {
+  // Cria um funcionário
+  async createEmployee(req, res) {
+    try {
+      const { nome, email, cpf, contato } = req.body;
+
+      // Validações dos campos obrigatórios
+      if (!nome) {
+        return res.status(400).json({ message: 'O campo nome é obrigatório.'})
+      }
+      if (!email) {
+        return res.status(400).json({ message: 'O campo email é obrigatório.'})
+      }
+      if (!cpf) {
+        return res.status(400).json({ message: 'O campo cpf é obrigatório.'})
+      }
+      if (!contato) {
+        return res.status(400).json({ message: 'O campo contato é obrigatório.'})
+      }
+
+      // Checa se o cpf já existe
+      const checkCpf = await employeeModel.findByCpf(cpf);
+      if (checkCpf) {
+        return res.status(409).json({ message: 'O CPF informado já está cadastrado.'});
+      }
+
+      const data = { nome, email, cpf, contato };
+      const newEmployee = await employeeModel.createEmployee(data);
+
+      return res.status(201).json({
+        message: 'Funcionário criado com sucesso!',
+        employee: newEmployee,
+      });
+    } catch (err) {
+      console.error('Erro ao criar funcionário:', err);
+      return res.status(500).json({message: 'Ocorreu um erro ao criar o funcionário.',error: err.message,});
+    }
+  },
+};
+
+module.exports = employeeController;
