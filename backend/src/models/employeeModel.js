@@ -17,6 +17,19 @@ const employeeModel = {
     return rows[0] || null; 
   },
 
+// Busca todos os funcionários
+  async findEmployee() {
+      const [rows] = await connection.execute('SELECT * FROM employee ORDER BY nome ASC');
+      return rows;
+  },
+
+// Busca um funcionário pelo ID
+  async findById(id) {
+    const query = `SELECT * FROM employee WHERE id = ?`;
+    const [rows] = await connection.execute(query, [id]);
+    return rows[0] || null; 
+  },
+
 };
 
 module.exports = employeeModel;

@@ -38,6 +38,21 @@ const employeeController = {
       return res.status(500).json({message: 'Ocorreu um erro ao criar o funcionário.',error: err.message,});
     }
   },
+
+// Busca todos os funcionários
+  async findEmployee(req, res) {
+    try {
+      const employees = await employeeModel.findEmployee();
+      return res.status(200).json(employees);
+    } catch (err) {
+      console.error('Erro ao buscar funcionários:', err);
+      return res.status(500).json({
+        message: 'Ocorreu um erro ao buscar os funcionários.',
+        error: err.message,
+      });
+    }
+  },
+
 };
 
 module.exports = employeeController;
