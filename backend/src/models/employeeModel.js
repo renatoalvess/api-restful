@@ -38,6 +38,13 @@ const employeeModel = {
     return result;
   },
 
+  // Deleta um funcionário pelo ID - Renato
+  async deleteEmployee(id) {
+    const query = `DELETE FROM employee WHERE id = ?`;
+    const [result] = await connection.execute(query, [id]);
+    return result;
+  },
+
 };
 
 module.exports = employeeModel;

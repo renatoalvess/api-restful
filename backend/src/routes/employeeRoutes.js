@@ -11,4 +11,7 @@ router.get('/buscar', employeeController.findEmployee);
 // Rota para atualizar um funcionário pelo ID
 router.put('/:id', employeeController.updateEmployee);
 
+// Rota para deletar um funcionário pelo ID
+router.delete('/:id', employeeController.deleteEmployee);
+
 module.exports = router;

@@ -12,20 +12,32 @@ post {
 
 body:json {
   {
-    "nome": "Harisson Senior Dev",
-    "cpf": "333.456.789-00",
-    "email": "harisson.alves@gmail.com",
+    "nome": "Roberto",
+    "cpf": "313.456.789-00",
+    "email": "roberto.alves@gmail.com",
     "contato":"88997979797"
   }
-  
-  // {
-  //   "nome": "José Valbério Junior",
-  //   "cpf": "555.456.789-00",
-  //   "email": "valberio.gold@gmail.com",
-  //   "contato":"8824242424"
-  // }
 }
 
 settings {
   encodeUrl: true
+}
+
+docs {
+  ### Criação de Funcionário
+  
+  Esta rota é usada para cadastrar um novo funcionário no sistema.
+  
+  - **Método:** `POST`
+  - **URL:** `/employee`
+  - **Corpo da Requisição (Body):**
+    - `nome`: (string, obrigatório) Nome do funcionário.
+    - `email`: (string, obrigatório) Email.
+    - `cpf`: (string, obrigatório) CPF`.
+    - `contato`: (string, obrigatório) Número de telefone.
+  
+  **Respostas:**
+  - **Status 201 Created:** Retorna o funcionário criado.
+  - **Status 400 Bad Request:** Campos obrigatórios não fornecidos.
+  - **Status 409 Conflict:** CPF já cadastrado.
 }
