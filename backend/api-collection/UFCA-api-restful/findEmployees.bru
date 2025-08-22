@@ -13,3 +13,17 @@ get {
 settings {
   encodeUrl: true
 }
+
+docs {
+  ### Buscar Todos os Funcionários
+    
+    Esta rota é usada para buscar todos os funcionários cadastrados no sistema.
+    
+    - **Método:** `GET`
+    - **URL:** `/employee/buscar`
+    - **Corpo da Requisição (Body): Nenhum
+    
+    **Respostas:**
+    - **Status 200 OK: Retorna uma lista com todos os funcionários cadastrados.
+    - **Status 500 Internal Server Error: Ocorreu um erro ao buscar os funcionários.
+}
