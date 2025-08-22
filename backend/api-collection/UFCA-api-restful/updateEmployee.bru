@@ -1,0 +1,24 @@
+meta {
+  name: updateEmployee
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:3000/employee/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "José Valbério Junior café",
+    "cpf": "555.456.789-00",
+    "email": "valberio.gold@gmail.com",
+    "contato":"8824242424"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

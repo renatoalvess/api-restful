@@ -8,4 +8,7 @@ router.post('/', employeeController.createEmployee);
 // Rota para buscar todos os funcionários
 router.get('/buscar', employeeController.findEmployee);
 
+// Rota para atualizar um funcionário pelo ID
+router.put('/:id', employeeController.updateEmployee);
+
 module.exports = router;
