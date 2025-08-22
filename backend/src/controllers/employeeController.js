@@ -103,6 +103,37 @@ const employeeController = {
     }
   },
 
+   // Deleta um funcionário
+  async deleteEmployee(req, res) {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({ message: 'O ID do funcionário é obrigatório.' });
+    }
+
+    const employee = await employeeModel.findById(id);
+    if (!employee) {
+      return res.status(404).json({ message: 'Funcionário não encontrado.' });
+    }
+
+    const result = await employeeModel.deleteEmployee(id);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Funcionário não encontrado ou já deletado.' });
+    }
+
+    return res.status(200).json({ message: 'Funcionário deletado com sucesso.' });
+
+  } catch (err) {
+    console.error('Erro ao deletar funcionário:', err);
+    return res.status(500).json({
+      message: 'Ocorreu um erro ao deletar o funcionário.',
+      error: err.message,
+    });
+  }
+},
+
 };
 
 module.exports = employeeController;
