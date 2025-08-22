@@ -12,7 +12,7 @@ put {
 
 body:json {
   {
-    "nome": "José Valbério Junior café",
+    "nome": "José Valbério Junior café sem sal",
     "cpf": "555.456.789-00",
     "email": "valberio.gold@gmail.com",
     "contato":"8824242424"
@@ -21,4 +21,23 @@ body:json {
 
 settings {
   encodeUrl: true
+}
+
+docs {
+  ### atualização de Funcionário
+    
+    Esta rota é usada para modificar um funcionário já cadastrado no sistema.
+    
+    - **Método:** `PUT`
+    - **URL:** `/employee`
+    - **Corpo da Requisição (Body):**
+      - `nome`: (string, obrigatório) Nome do funcionário.
+      - `email`: (string, obrigatório) Email.
+      - `cpf`: (string, obrigatório) CPF`.
+      - `contato`: (string, obrigatório) Número de telefone.
+    
+    **Respostas:**
+    - **Status 200 OK:** Funcionário atualizado com sucesso.
+    - **Status  404 Not Found:** Funcionário não encontrado com o ID fornecido.
+    - **Status 500 Internal Server Error:**  Erro interno do servidor durante a atualização.
 }
