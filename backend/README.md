@@ -97,4 +97,8 @@ O projeto já inclui um arquivo bruno.json.
 
 ## possiveis usos da nossa API
 
-Nossa API pode ser utilizada por empresas, organizações e desenvolvedores para facilitar a gestão de funcionários. Ela permite cadastrar, consultar e atualizar dados de colaboradores de forma rápida e segura, podendo ser integrada a sistemas internos de RH, aplicativos de controle de acesso ou plataformas de automação de processos. Com isso, negócios ganham agilidade, reduzem erros manuais e melhoram a organização das informações, tornando o gerenciamento de pessoas mais eficiente.
+Nossa API pode ser utilizada por empresas, organizações e desenvolvedores para facilitar a gestão de funcionários. 
+Ela permite cadastrar, consultar e atualizar dados de colaboradores de forma rápida e segura, podendo ser integrada a 
+sistemas internos de RH, aplicativos de controle de acesso ou plataformas de automação de processos. Com isso, 
+negócios ganham agilidade, reduzem erros manuais e melhoram a organização das informações, tornando o gerenciamento 
+de pessoas mais eficiente. 
