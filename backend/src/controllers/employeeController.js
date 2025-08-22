@@ -53,6 +53,56 @@ const employeeController = {
     }
   },
 
+  // Atualiza um funcionário
+  async updateEmployee(req, res) {
+    try {
+      const { id } = req.params;
+      const { nome, cpf, email, contato } = req.body;
+
+      // 1. Verifique se o ID e os dados foram fornecidos
+      if (!id) {
+        return res.status(400).json({ message: 'O ID do funcionário é obrigatório.' });
+      }
+
+      // 2. Verifique se o funcionário existe
+      const employee = await employeeModel.findById(id);
+      if (!employee) {
+        return res.status(404).json({ message: 'Funcionário não encontrado.' });
+      }
+
+      // 3. Prepare os dados para atualização
+      const data = { nome, cpf, email, contato };
+
+      // Validações dos campos obrigatórios
+
+      if (!nome) {
+        return res.status(400).json({ message: 'O campo nome é obrigatório.'})
+      }
+      if (!email) {
+        return res.status(400).json({ message: 'O campo email é obrigatório.'})
+      }
+      if (!cpf) {
+        return res.status(400).json({ message: 'O campo cpf é obrigatório.'})
+      }
+      if (!contato) {
+        return res.status(400).json({ message: 'O campo contato é obrigatório.'})
+      }
+
+      // 4. Atualiza o funcionário
+      const result = await employeeModel.updateEmployee(id, data);
+      
+      // 5. Retorne a resposta de sucesso
+      return res.status(200).json({ message: 'Funcionário atualizado com sucesso!' });
+
+    } catch (err) {
+      console.error('Erro ao atualizar funcionário:', err);
+      return res.status(500).json({
+        message: 'Ocorreu um erro ao atualizar o funcionário.',
+        error: err.message,
+      });
+    }
+  },
+
 };
 
 module.exports = employeeController;

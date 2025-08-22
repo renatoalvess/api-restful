@@ -30,6 +30,14 @@ const employeeModel = {
     return rows[0] || null; 
   },
 
+  // Atualiza um funcionário
+  async updateEmployee(id, data) {
+    const { nome, cpf, email, contato } = data;
+    const query = `UPDATE employee SET nome = ?, cpf = ?, email = ?, contato = ? WHERE id = ? `;
+    const [result] = await connection.execute(query, [nome, cpf, email, contato, id]);
+    return result;
+  },
+
 };
 
 module.exports = employeeModel;
