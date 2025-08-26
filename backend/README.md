@@ -52,7 +52,7 @@ Abra o MySQL Workbench (ou qualquer cliente MySQL de sua preferência).
 ## Rotas da API
 A API possui as seguintes rotas:
 
-1. POST /employee
+### 1. POST /employee
 - Descrição: Cria um novo funcionário.
 URL: http://localhost:3000/employee
 
@@ -66,11 +66,27 @@ Método: POST
         "contato": "88991234567"
     }
 
-2. GET /employee
+### 2. GET /employee
+- Descrição: Busca todos os funcionários.
+URL: http://localhost:3000/employee/buscar
 
-3. PUT /employee
+### 3. PUT /employee/id
+- Descrição: Atualiza um funcionário pelo id.
+URL: http://localhost:3000/employee/8
 
-4. DELETE /employee
+Método: PUT
+- Exemplo do Corpo da Requisição no Bruno Api (JSON):
+    ```bash
+    {
+      "nome": "Roberto Silva",
+      "cpf": "313.456.789-00",
+      "contato": "88997979797",
+      "email": "roberto.alves@gmail.com"
+   }
+
+### 4. DELETE /employee/id
+- Descrição: Exclui um funcionário pelo id.
+URL: http://localhost:3000/employee/8
 
 ## Testando com o Bruno API
 O projeto já inclui um arquivo bruno.json.
