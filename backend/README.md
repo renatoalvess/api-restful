@@ -53,40 +53,150 @@ Abra o MySQL Workbench (ou qualquer cliente MySQL de sua preferência).
 A API possui as seguintes rotas:
 
 ### 1. POST /employee
-- Descrição: Cria um novo funcionário.
-URL: http://localhost:3000/employee
 
-Método: POST
-- Exemplo do Corpo da Requisição no Bruno Api (JSON):
-    ```bash
-    {
-        "nome": "Renato ALves",
-        "cpf": "123.456.789-00",
-        "email": "renato@email.com",
-        "contato": "88991234567"
-    }
+### Criação de Funcionário
+
+Esta rota é usada para cadastrar um novo funcionário no sistema.
+
+- **Método:** `POST`
+- **URL:** `URL: http://localhost:3000/employee`
+- **Corpo da Requisição (Body):**
+   ```bash
+   {
+      "nome": "Roberto",
+      "cpf": "313.456.783-00",
+      "email": "roberto.alves@gmail.com",
+      "contato":"88997979797"
+   }
+
+**Respostas:**
+- **Status 201 Created:** Retorna o funcionário criado.
+   ```bash
+   {
+      "message": "Funcionário criado com sucesso!",
+      "employee": {
+         "fieldCount": 0,
+         "affectedRows": 1,
+         "insertId": 9,
+         "info": "",
+         "serverStatus": 2,
+         "warningStatus": 0,
+         "changedRows": 0
+      }
+   }
+
+- **Status 400 Bad Request:** Campos obrigatórios não fornecidos.
+   ```bash
+   {
+      "message": "O campo nome é obrigatório."
+   }
+
+- **Status 409 Conflict:** CPF já cadastrado.
+   ```bash
+   {
+      "message": "O CPF informado já está cadastrado."
+   }
 
 ### 2. GET /employee
-- Descrição: Busca todos os funcionários.
-URL: http://localhost:3000/employee/buscar
+
+### Buscar Todos os Funcionários
+  
+Esta rota é usada para buscar todos os funcionários cadastrados no sistema.
+  
+- **Método:** `GET`
+- **URL:** `URL: http://localhost:3000/employee/buscar`
+- **Corpo da Requisição (Body): Nenhum
+  
+**Respostas:**
+- **Status 200 OK: Retorna uma lista com todos os funcionários cadastrados.
+   ```bash
+   [
+      {
+         "id": 6,
+         "nome": "Harisson Senior Dev",
+         "cpf": "333.456.789-00",
+         "contato": "88997979797",
+         "email": "harisson.alves@gmail.com",
+         "created_at": "2025-08-14T00:43:26.000Z"
+      },
+      {
+         "id": 5,
+         "nome": "José Valbério Tibério",
+         "cpf": "555.456.789-00",
+         "contato": "8824242424",
+         "email": "valberio.gold@gmail.com",
+         "created_at": "2025-08-14T00:43:13.000Z"
+      },
+      {
+         "id": 1,
+         "nome": "Renato Alves",
+         "cpf": "123.456.789-00",
+         "contato": "88997979797",
+         "email": "renato.alves@gmail.com",
+         "created_at": "2025-08-07T01:27:41.000Z"
+      }
+   ]  
+  
+- **Status 500 Internal Server Error: Ocorreu um erro ao buscar os funcionários.
+   ```bash
+   {
+      "Ocorreu um erro ao buscar os funcionários."
+   }
 
 ### 3. PUT /employee/id
-- Descrição: Atualiza um funcionário pelo id.
-URL: http://localhost:3000/employee/8
 
-Método: PUT
-- Exemplo do Corpo da Requisição no Bruno Api (JSON):
-    ```bash
-    {
-      "nome": "Roberto Silva",
+### Atualização de Funcionário
+  
+Esta rota é usada para modificar um funcionário já cadastrado no sistema.
+  
+- **Método:** `PUT`
+- **URL:** `URL: http://localhost:3000/employee/8`
+- **Corpo da Requisição (Body):**
+   ```bash
+   {
+      "nome": "Roberto Silva da Costa",
       "cpf": "313.456.789-00",
       "contato": "88997979797",
       "email": "roberto.alves@gmail.com"
    }
+  
+**Respostas:**
+- **Status 200 OK:** Funcionário atualizado com sucesso.
+   ```bash  
+   {
+      "message": "Funcionário atualizado com sucesso!"
+   }  
+
+- **Status  404 Not Found:** Funcionário não encontrado com o ID fornecido.
+   ```bash  
+   {
+      "message": "Funcionário não encontrado."
+   }
+
+- **Status 500 Internal Server Error:**  Erro interno do servidor durante a atualização.
 
 ### 4. DELETE /employee/id
-- Descrição: Exclui um funcionário pelo id.
-URL: http://localhost:3000/employee/8
+
+### Excluir um Funcionário
+  
+Esta rota é usada para remover um funcionário do sistema pelo seu ID.
+
+- **Método:** `DELETE`
+- **URL:** `http://localhost:3000/employee/8`
+- **Parâmetros da URL: id: (inteiro, obrigatório) O ID do funcionário a ser deletado.
+
+**Respostas:**
+- **Status 200 OK: Retorna uma mensagem de sucesso após a deleção.
+   ```bash
+   {
+      "message": "Funcionário deletado com sucesso."
+   }
+
+- **Status 400 Bad Request: O ID não foi fornecido na URL.
+   ```bash  
+   {
+      "message": "Funcionário não encontrado."
+   }
 
 ## Testando com o Bruno API
 O projeto já inclui um arquivo bruno.json.
@@ -114,3 +224,8 @@ O projeto já inclui um arquivo bruno.json.
 ## Possíveis usos da nossa API
 
 Nossa API pode ser utilizada por empresas, organizações e desenvolvedores para facilitar a gestão de funcionários. Ela permite cadastrar, consultar e atualizar dados de colaboradores de forma rápida e segura, podendo ser integrada a sistemas internos de RH, aplicativos de controle de acesso ou plataformas de automação de processos. Com isso, negócios ganham agilidade, reduzem erros manuais e melhoram a organização das informações, tornando o gerenciamento de pessoas mais eficiente.
+
+## Colaboradores
+
+| <img src="https://avatars.githubusercontent.com/u/170210459?v=4" width="100px;"><br>**[Renato Alves](https://github.com/renatoalvess)** | <img src="https://avatars.githubusercontent.com/u/179520057?v=4" width="100px;"><br>**[Harisson Alencar](https://github.com/harissonalen)** | <img src="https://avatars.githubusercontent.com/u/179228881?v=4" width="100px;"><br>**[José Valbério](https://github.com/JoseValberio)** |
+|:---:|:---:|:---:|
