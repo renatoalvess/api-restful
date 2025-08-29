@@ -12,7 +12,7 @@ put {
 
 body:json {
   {
-    "nome": "Roberto Silva",
+    "nome": "Roberto Silva da Costa",
     "cpf": "313.456.789-00",
     "contato": "88997979797",
     "email": "roberto.alves@gmail.com"
@@ -26,18 +26,31 @@ settings {
 docs {
   ### atualização de Funcionário
     
-    Esta rota é usada para modificar um funcionário já cadastrado no sistema.
+  Esta rota é usada para modificar um funcionário já cadastrado no sistema.
     
-    - **Método:** `PUT`
-    - **URL:** `/employee`
-    - **Corpo da Requisição (Body):**
-      - `nome`: (string, obrigatório) Nome do funcionário.
-      - `email`: (string, obrigatório) Email.
-      - `cpf`: (string, obrigatório) CPF`.
-      - `contato`: (string, obrigatório) Número de telefone.
+  - **Método:** `PUT`
+  - **URL:** `/employee`
+  - **Corpo da Requisição (Body):**
+  
+  {
+    "nome": "Roberto Silva da Costa",
+    "cpf": "313.456.789-00",
+    "contato": "88997979797",
+    "email": "roberto.alves@gmail.com"
+  }
     
-    **Respostas:**
-    - **Status 200 OK:** Funcionário atualizado com sucesso.
-    - **Status  404 Not Found:** Funcionário não encontrado com o ID fornecido.
-    - **Status 500 Internal Server Error:**  Erro interno do servidor durante a atualização.
+  **Respostas:**
+  - **Status 200 OK:** Funcionário atualizado com sucesso.
+    
+  {
+    "message": "Funcionário atualizado com sucesso!"
+  }  
+  
+  - **Status  404 Not Found:** Funcionário não encontrado com o ID fornecido.
+    
+  {
+    "message": "Funcionário não encontrado."
+  }
+  
+  - **Status 500 Internal Server Error:**  Erro interno do servidor durante a atualização.
 }

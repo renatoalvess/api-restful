@@ -17,13 +17,45 @@ settings {
 docs {
   ### Buscar Todos os Funcionários
     
-    Esta rota é usada para buscar todos os funcionários cadastrados no sistema.
+  Esta rota é usada para buscar todos os funcionários cadastrados no sistema.
+  
+  - **Método:** `GET`
+  - **URL:** `/employee/buscar`
+  - **Corpo da Requisição (Body): Nenhum
+  
+  **Respostas:**
+  - **Status 200 OK: Retorna uma lista com todos os funcionários cadastrados.
+  
+  [
+    {
+      "id": 6,
+      "nome": "Harisson Senior Dev",
+      "cpf": "333.456.789-00",
+      "contato": "88997979797",
+      "email": "harisson.alves@gmail.com",
+      "created_at": "2025-08-14T00:43:26.000Z"
+    },
+    {
+      "id": 5,
+      "nome": "José Valbério Tibério",
+      "cpf": "555.456.789-00",
+      "contato": "8824242424",
+      "email": "valberio.gold@gmail.com",
+      "created_at": "2025-08-14T00:43:13.000Z"
+    },
+    {
+      "id": 1,
+      "nome": "Renato Alves",
+      "cpf": "123.456.789-00",
+      "contato": "88997979797",
+      "email": "renato.alves@gmail.com",
+      "created_at": "2025-08-07T01:27:41.000Z"
+    }
+  ]  
     
-    - **Método:** `GET`
-    - **URL:** `/employee/buscar`
-    - **Corpo da Requisição (Body): Nenhum
-    
-    **Respostas:**
-    - **Status 200 OK: Retorna uma lista com todos os funcionários cadastrados.
-    - **Status 500 Internal Server Error: Ocorreu um erro ao buscar os funcionários.
+  - **Status 500 Internal Server Error: Ocorreu um erro ao buscar os funcionários.
+  
+  {
+    Ocorreu um erro ao buscar os funcionários.
+  }
 }

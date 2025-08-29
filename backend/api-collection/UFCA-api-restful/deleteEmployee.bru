@@ -5,7 +5,7 @@ meta {
 }
 
 delete {
-  url: http://localhost:3000/employee/8
+  url: http://localhost:3000/employee/65
   body: none
   auth: inherit
 }
@@ -17,14 +17,22 @@ settings {
 docs {
   ### Excluir um Funcionário
     
-    Esta rota é usada para remover um funcionário do sistema pelo seu ID.
+  Esta rota é usada para remover um funcionário do sistema pelo seu ID.
+  
+  - **Método:** `DELETE`
+  - **URL:** `/employee/:id`
+  - **Parâmetros da URL: id: (inteiro, obrigatório) O ID do funcionário a ser deletado.
+  
+  **Respostas:**
+  - **Status 200 OK: Retorna uma mensagem de sucesso após a deleção.
+  
+  {
+    "message": "Funcionário deletado com sucesso."
+  }
+  
+  - **Status 400 Bad Request: O ID não foi fornecido na URL.
     
-    - **Método:** `DELETE`
-    - **URL:** `/employee/:id`
-    - **Parâmetros da URL: id: (inteiro, obrigatório) O ID do funcionário a ser deletado.
-    
-    **Respostas:**
-    - **Status 200 OK: Retorna uma mensagem de sucesso após a deleção.
-    - **Status 400 Bad Request: O ID não foi fornecido na URL.
-    - **Status 404 Not Found: O funcionário com o ID especificado não foi encontrado no banco de dados.
+  {
+    "message": "Funcionário não encontrado."
+  }
 }
