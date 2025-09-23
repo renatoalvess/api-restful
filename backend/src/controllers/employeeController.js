@@ -53,6 +53,27 @@ const employeeController = {
     }
   },
 
+  // Busca todos os funcionários
+  async findById(req, res) {
+    try {
+      const { id } = req.params;
+
+      // 2. Verifique se o funcionário existe
+      const employee = await employeeModel.findById(id);
+      if (!employee) {
+        return res.status(404).json({ message: 'Funcionário não encontrado.' });
+      }
+      const employees = await employeeModel.findById(id);
+      return res.status(200).json(employees);
+    } catch (err) {
+      console.error('Erro a buscar funcionário:', err);
+      return res.status(500).json({
+        message: 'Ocorreu um erro ao buscar o funcionário.',
+        error: err.message,
+      });
+    }
+  },
+
   // Atualiza um funcionário
   async updateEmployee(req, res) {
     try {
