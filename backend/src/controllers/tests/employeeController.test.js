@@ -105,6 +105,54 @@ describe('employeeController', () => {
     });
   });
 
-  // Próximos testes
+  describe('updateEmployee', () => {
+    it('deve atualizar um funcionário com sucesso', async () => {
+      const req = {
+        params: { id: 1 },
+        body: {
+          nome: 'Test User Updated',
+          email: 'test.updated@example.com',
+          cpf: '12345678901',
+          contato: '987654321'
+        }
+      };
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
+      };
+
+      employeeModel.findById.mockResolvedValue({ id: 1, ...req.body });
+      employeeModel.updateEmployee.mockResolvedValue({ affectedRows: 1 });
+
+      await employeeController.updateEmployee(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith({
+        message: 'Funcionário atualizado com sucesso!'
+      });
+    });
+
+    it('deve retornar 400 se algum campo estiver faltando', async () => {
+      const req = {
+        params: { id: 1 },
+        body: {
+          nome: 'Test User Updated'
+        }
+      };
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
+      };
+
+      employeeModel.findById.mockResolvedValue({ id: 1 });
+
+      await employeeController.updateEmployee(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(400);
+      expect(res.json).toHaveBeenCalledWith({
+        message: 'O campo email é obrigatório.'
+      });
+    });
+  });
 
 });

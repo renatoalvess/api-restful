@@ -225,7 +225,17 @@ O projeto já inclui um arquivo bruno.json.
 
 Nossa API pode ser utilizada por empresas, organizações e desenvolvedores para facilitar a gestão de funcionários. Ela permite cadastrar, consultar e atualizar dados de colaboradores de forma rápida e segura, podendo ser integrada a sistemas internos de RH, aplicativos de controle de acesso ou plataformas de automação de processos. Com isso, negócios ganham agilidade, reduzem erros manuais e melhoram a organização das informações, tornando o gerenciamento de pessoas mais eficiente.
 
+
+## Beneficios dos Testes 
+
+Testes de software são um controle de qualidade essencial que garante que os aplicativos e sistemas do nosso dia a dia sejam confiáveis, seguros e funcionais. Garantem que tudo funcione como esperado. Ao encontrar e corrigir problemas antes que o software chegue ao usuário, os testes previnem desde pequenas frustrações até prejuízos e riscos de segurança, construindo a confiança na tecnologia que usamos.
+Ao adotar uma cultura de testes, os desenvolvedores não estão apenas melhorando o código, mas também exercendo um papel de responsabilidade social, contribuindo para a construção de um mundo digital mais seguro e confiável para todos.
+
 ## Colaboradores
 
 | <img src="https://avatars.githubusercontent.com/u/170210459?v=4" width="100px;"><br>**[Renato Alves](https://github.com/renatoalvess)** | <img src="https://avatars.githubusercontent.com/u/179520057?v=4" width="100px;"><br>**[Harisson Alencar](https://github.com/harissonalen)** | <img src="https://avatars.githubusercontent.com/u/179228881?v=4" width="100px;"><br>**[José Valbério](https://github.com/JoseValberio)** |
 |:---:|:---:|:---:|
+
+
+
+
