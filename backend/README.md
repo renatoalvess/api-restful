@@ -205,6 +205,63 @@ O projeto já inclui um arquivo bruno.json.
 2. Clique em "Open Collection" e selecione a pasta raiz do seu projeto (backend/).
 3. A coleção "UFCA-api-restful" será carregada automaticamente, e você poderá testar as rotas facilmente.
 
+## Como Executar os Testes
+
+1. Rodar os testes:
+   ```bash
+   npm test
+
+## Visão Geral dos Testes
+
+Testes de Unidade para employeeController: Testes que concentram na lógica de negócio, lidando corretamente com as requisições, sem depender do banco de dados (graças ao uso de mocks).
+
+## Cenários de Teste e Resultados Esperados
+
+- Grupo de Teste: createEmployee
+
+   - Cenário de Sucesso:
+
+      - Propósito: Validar a criação de um novo funcionário com dados válidos.
+
+      - Resultado Esperado: O teste deve retornar um status 201 (Created) e um objeto JSON contendo uma mensagem de sucesso e os dados do novo funcionário.
+
+   - Cenário de Falha:
+
+      - Propósito: Validar o tratamento de erro quando um campo obrigatório (nome) está ausente.
+
+      - Resultado Esperado: O teste deve retornar um status 400 (Bad Request) e uma mensagem de erro indicando que o campo é obrigatório.
+
+- Grupo de Teste: findEmployee
+
+   - Cenário:
+
+      - Propósito: Garantir que a busca de todos os funcionários funcione corretamente.
+
+      - Resultado Esperado: O teste deve retornar um status 200 (OK) e uma lista de funcionários em formato JSON.
+
+- Grupo de Teste: findById
+
+   - Cenário:
+
+      - Propósito: Verificar o tratamento de erro ao buscar um funcionário que não existe.
+
+      - Resultado Esperado: O teste deve retornar um status 404 (Not Found) e uma mensagem de erro.
+
+- Grupo de Teste: updateEmployee
+
+   - Cenário de Sucesso:
+
+      - Propósito: Validar a atualização de um funcionário existente com sucesso.
+
+      - Resultado Esperado: O teste deve retornar um status 200 (OK) e uma mensagem de sucesso.
+
+   - Cenário de Falha:
+
+      - Propósito: Verificar o tratamento de erro quando um campo obrigatório está ausente na requisição de atualização.
+
+      - Resultado Esperado: O teste deve retornar um status 400 (Bad Request) e uma mensagem de erro.
+
+
 ## Como Contribuir como colaborador
 1. Faça um fork do projeto.
 2. Crie uma branch para sua feature:
